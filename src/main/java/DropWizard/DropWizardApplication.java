@@ -18,6 +18,7 @@ public class DropWizardApplication extends Service<Configuration> {
     }
 
     // command line arguments is "server"
+    // to test hit this: curl -X GET "localhost:8080/simpleAPI/getTest"
     public static void main(String[] args) throws Exception {
         new DropWizardApplication().run(args);
     }
