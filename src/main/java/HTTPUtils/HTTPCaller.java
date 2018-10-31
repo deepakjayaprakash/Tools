@@ -4,6 +4,7 @@ import io.netty.handler.codec.http.HttpMethod;
 import org.asynchttpclient.*;
 
 import java.util.concurrent.CompletableFuture;
+
 /**
  * Created by deepak.jayaprakash on 31/10/18.
  */
@@ -34,10 +35,10 @@ public class HTTPCaller {
         CompletableFuture<Response> partial = client.executeRequest(buildRequest()).toCompletableFuture();
         partial.handle((response, throwable) -> {
             if (throwable != null) {
-                System.out.println("exception "+ throwable);
+                System.out.println("exception " + throwable);
                 return new Response.ResponseBuilder().build();
             } else {
-                System.out.println("response"+ response);
+                System.out.println("response" + response);
                 return response;
             }
         });
