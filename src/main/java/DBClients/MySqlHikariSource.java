@@ -9,14 +9,14 @@ import java.sql.SQLException;
 /**
  * Created by deepak.jayaprakash on 02/11/18.
  */
-public class HikariSource {
+public class MySqlHikariSource {
 
-    private static HikariSource instance;
+    private static MySqlHikariSource instance;
     private static HikariDataSource datasource = null;
 
-    public static HikariSource getInstance() {
+    public static MySqlHikariSource getInstance() {
         if (instance == null) {
-            instance = new HikariSource();
+            instance = new MySqlHikariSource();
             initializeHikari();
         }
         return instance;

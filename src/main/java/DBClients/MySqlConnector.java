@@ -21,7 +21,7 @@ public class MySqlConnector {
 
     public static void executeMethod() {
 //        Connection connection = getConnection(); // from native jdbc
-        Connection connection = HikariSource.getInstance().getConnection(); // using hikari
+        Connection connection = MySqlHikariSource.getInstance().getConnection(); // using hikari
         if (connection == null)
             return;
         ResultSet rs;
