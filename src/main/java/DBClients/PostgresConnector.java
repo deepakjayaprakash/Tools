@@ -5,13 +5,13 @@ import java.sql.*;
 /**
  * Created by deepak.jayaprakash on 31/10/18.
  */
-public class MySqlConnector {
+public class PostgresConnector {
 
-    // mysql -h localhost -u root
+//    psql -h localhost -p 5432 -U username -d databasename
     public static Connection getConnection() {
         try {
             Connection con = DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/test", "root", "");
+                    "jdbc:postgresql://hostname:port/dbname", "root", "");
             return con;
         } catch (SQLException e) {
             e.printStackTrace();
@@ -20,10 +20,7 @@ public class MySqlConnector {
     }
 
     public static void executeMethod() {
-//        Connection connection = getConnection(); // from native jdbc
-        Connection connection = HikariSource.getInstance().getConnection(); // using hikari
-        if (connection == null)
-            return;
+        Connection connection = getConnection();
         ResultSet rs;
         try {
             Statement stmt = connection.createStatement();

@@ -1,0 +1,15 @@
+CREATE USER testuser WITH PASSWORD 'testuser';
+CREATE SCHEMA sampleschema AUTHORIZATION testuser;
+GRANT ALL ON SCHEMA sampleschema TO testuser;
+
+DROP TABLE IF EXISTS sampleschema.users;
+CREATE TABLE sampleschema.users
+(
+  gid serial NOT NULL,
+  name character varying(150) NOT NULL,
+  CONSTRAINT ls_shapes_pkey PRIMARY KEY (gid)
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE sampleschema.users OWNER TO testuser;
