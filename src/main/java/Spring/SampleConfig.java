@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Scope;
  */
 @Configuration
 public class SampleConfig {
-    @Bean
+    @Bean(initMethod = "onCreate", destroyMethod = "onDestroy")
     @Scope("prototype")
     public HelloWorld helloWorld() {
         return new HelloWorld();
