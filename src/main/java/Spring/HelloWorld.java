@@ -1,6 +1,8 @@
 package Spring;
 
 import lombok.Data;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 
 /**
  * Created by deepak.jayaprakash on 09/11/18.
@@ -9,8 +11,15 @@ import lombok.Data;
 public class HelloWorld {
     int data;
 
+    @Autowired
+    HelloWorldHelper helloWorldHelper;
+
+    @Value("${testkey}")
+    String testValue;
+
     public void printHello() {
-        System.out.println("hello world" + data);
+        System.out.println("hello from HelloWorld" + data+"testvalue"+ testValue);
+        helloWorldHelper.printStaticText();
     }
 
     public void onDestroy() {

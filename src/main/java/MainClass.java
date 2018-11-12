@@ -24,6 +24,7 @@ public class MainClass {
 
         System.out.println(helloWorld.getData());
         System.out.println(helloWorld2.getData());
+        helloWorld.printHello();
     }
 
     //java based spring
