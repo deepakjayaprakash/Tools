@@ -7,6 +7,7 @@ Has the following things as of now
    - Postgres: Coming up
    - Hikari Pool integration: [Properties file for hikari](src/main/resources/psql.datasource.properties)
    - Redis: used jedis as client, [client code](src/main/java/redis/RedisClient.java)
+   - Guava Cache: [Sample code](src/main/java/DBClients/GuavaCache.java)
 
 2. DropWizardServer:
    - Has a basic setup of drop wizard server.
@@ -24,7 +25,7 @@ Has the following things as of now
 
 
 
-###To build and run via jar
+### To build and run via jar
 ```
 maven clean install
 java -cp target/tools-1.0-SNAPSHOT.jar MainClass

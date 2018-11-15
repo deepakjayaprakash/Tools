@@ -27,8 +27,7 @@ public class CommandExecutor extends HystrixCommand<Response> {
 
     @Override
     protected Response run() throws Exception {
-        Response response = client.executeRequest(request).get();
-        return response;
+        return client.executeRequest(request).get();
     }
 
     protected static void closeClient() {
