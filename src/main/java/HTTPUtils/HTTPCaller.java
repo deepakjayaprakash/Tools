@@ -1,6 +1,8 @@
 package HTTPUtils;
 
+import com.netflix.config.ConfigurationManager;
 import io.netty.handler.codec.http.HttpMethod;
+import org.apache.commons.configuration.AbstractConfiguration;
 import org.asynchttpclient.*;
 
 import java.util.concurrent.CompletableFuture;
@@ -46,7 +48,25 @@ public class HTTPCaller {
 
     public static void main(String[] args) {
 //        syncCall();
-        asyncCall();
+//        asyncCall();
 //        client.close(); // if you dont close this then program does not terminate
+        hystrixCall();
+    }
+
+    public static void hystrixCall() {
+        try {
+            AbstractConfiguration configInstance = ConfigurationManager.getConfigInstance();
+            configInstance.setProperty(
+                    "hystrix.command.CommandExecutor.execution.timeout.enabled", true);
+            configInstance.setProperty(
+                    "hystrix.command.CommandExecutor.execution.isolation.thread.timeoutInMilliseconds", 200);
+            // set other configs here
+            Response response = new CommandExecutor(buildRequest()).execute();
+            System.out.println(response);
+            CommandExecutor.closeClient();
+        } catch (Exception e) {
+            System.out.println("Hystrix Exception");
+            e.printStackTrace();
+        }
     }
 }

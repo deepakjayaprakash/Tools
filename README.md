@@ -16,13 +16,15 @@ Has the following things as of now
 3. HTTP Utils:
    - Client used: DefaultAsyncHttpClient
    - [Sample code](src/main/java/HTTPUtils/HTTPCaller.java)
+   - [Hystrix Integration](src/main/java/HTTPUtils/CommandExecutor.java)
 
 4. Spring:
    - [config file](src/main/resources/application-context.xml)
    - [spring properties file](src/main/resources/spring.properties)
 
 
-####To build and run via jar
+
+###To build and run via jar
 ```
 maven clean install
 java -cp target/tools-1.0-SNAPSHOT.jar MainClass
