@@ -14,7 +14,7 @@ import java.util.List;
 public class CSVReader {
 
     public static void readCSV() {
-        String csvFile = "/Users/deepak.jayaprakash//cities.csv";
+        String csvFile = "/Users/deepak.jayaprakash/cities.csv";
         BufferedReader br = null;
         String line;
         String cvsSplitBy = ",";

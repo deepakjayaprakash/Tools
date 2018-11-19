@@ -27,6 +27,6 @@ Has the following things as of now
 
 ### To build and run via jar
 ```
-maven clean install
+mvn clean install
 java -cp target/tools-1.0-SNAPSHOT.jar MainClass
 ```
